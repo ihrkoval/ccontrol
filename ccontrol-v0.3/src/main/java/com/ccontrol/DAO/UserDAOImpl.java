@@ -15,16 +15,28 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User newUser(String login, String password, String role) {
-		em.getTransaction().begin();
+		
 		User user = new User(login, password, role);
+		try{
+		em.getTransaction().begin();
 		em.persist(user);
 		em.getTransaction().commit();
+		} catch (Exception e){
+			em.getTransaction().rollback();
+		}
 		return user;
 	}
 
 	@Override
 	public User getUserByName(String login) {
 		User u = (User)em.createNativeQuery("Select * from Users where login = '"+login+"'", User.class).getSingleResult();
+		
+		return u;
+	}
+	
+	@Override
+	public User getUserByID(int id) {
+		User u = (User)em.createNativeQuery("Select * from Users where id = '"+id+"'", User.class).getSingleResult();
 		
 		return u;
 	}

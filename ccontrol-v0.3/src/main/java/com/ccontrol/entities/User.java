@@ -25,7 +25,7 @@ String password;
 String role;
 
 @OneToMany(mappedBy="user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-private List<Marker> markers = new ArrayList<Marker>();
+private List<Phone> phones = new ArrayList<Phone>();
 
 public User(String login, String password, String role) {
 	this.login  = login;

@@ -20,8 +20,8 @@ public class Marker {
 	int id;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id")
-	User user;
+	@JoinColumn(name = "phone_id")
+	Phone phone;
 	
 	String lat;
 	String lng;
