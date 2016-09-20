@@ -35,7 +35,7 @@
      	<!-- set the maximum file size in bytes -->
     	<beans:property name="maxUploadSize" value="1000000"/>
 	</beans:bean>
-	
+	<!-- 
 	<beans:bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean" lazy-init="false">
 		<beans:property name="targetObject" ref="dataSource" />
 		<beans:property name="targetMethod" value="addConnectionProperty" />
@@ -45,5 +45,5 @@
 				<beans:value>windows-1251</beans:value>
 			</beans:list>
 		</beans:property>
-	</beans:bean>
+	</beans:bean> -->
 </beans:beans>
