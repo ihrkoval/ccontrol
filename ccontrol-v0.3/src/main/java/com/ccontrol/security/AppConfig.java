@@ -43,16 +43,18 @@ public class AppConfig extends WebMvcConfigurerAdapter  {
         return mr;
     }
 	
-	@Bean
-	public UserDetailsService getUserDetailsService(){
-	        return new UserDetailsServiceIMPL();
-	    }
-	
 	 @Bean
 	    public EntityManager entityManager() {
 	        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ccontrol");
 	        return emf.createEntityManager();
 	}
+	
+	@Bean
+	public UserDetailsService getUserDetailsService(){
+	        return new UserDetailsServiceIMPL();
+	    }
+	
+	
 
 	  
 	/*@Bean
