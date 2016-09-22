@@ -29,6 +29,7 @@ public class Phone {
 	@OneToMany(mappedBy="phone", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Marker> markers = new ArrayList<Marker>();
 	
+
 	String emei;
 	String name;
 	

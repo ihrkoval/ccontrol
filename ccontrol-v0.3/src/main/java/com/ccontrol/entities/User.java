@@ -27,6 +27,8 @@ String role;
 @OneToMany(mappedBy="user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 private List<Phone> phones = new ArrayList<Phone>();
 
+
+
 public User(String login, String password, String role) {
 	this.login  = login;
 	this.password = password;
@@ -34,6 +36,17 @@ public User(String login, String password, String role) {
 }
 
 public User(){}
+
+
+
+
+public List<Phone> getPhones() {
+	return phones;
+}
+
+public void setPhones(List<Phone> phones) {
+	this.phones = phones;
+}
 
 public String getLogin() {
 	return login;
