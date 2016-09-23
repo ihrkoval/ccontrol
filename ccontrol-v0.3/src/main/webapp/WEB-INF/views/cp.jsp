@@ -8,11 +8,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-
+ <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <title>Control Panel</title>
 
     <!-- Bootstrap core CSS -->
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+     <link href="resources/css/datapicker/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -23,7 +24,8 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="resources/js/ie-emulation-modes-warning.js"></script>
-
+	 <script src="resources/js/bootstrap-datepicker.ru.min.js"></script>
+	  <script src="resources/js/bootstrap-datepicker.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -31,7 +33,7 @@
     <![endif]-->
     
    
-   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  
 
     
     
@@ -44,53 +46,7 @@
 
   <body>
 
-   <!--  <nav class="navbar navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Control panel</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            
-            <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-      Phone
-      <b class="caret"></b>
-    </a>
-    <ul class="dropdown-menu">
-      ...
-    </ul>
-  </li>
-            
-          </ul>
-          
-        
   
-
-
-          
-        </div>/.nav-collapse
-      </div>
-    </nav>
-     -->
-    
-    <!--  <div class="container">-->
-
-       <!--  <h1 class="thick-heading">
-        ||Control panel||
-      </h1>
-
-        First Featurette -->
-       <!--  <div class="featurette" id="about">  -->
             <!------------------------code---------------start---------------->
             <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container-fluid">
@@ -174,23 +130,28 @@
 
                         </div>
                     </div>
-                    <div class="row">
-        <div class='col-sm-6'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-cloud"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker12').datetimepicker();
-            });
-        </script>
+           <div class="container">
+    <div class="row">
+        <div class='col-sm-2'> 
+		<input class="datepicker" type ="hidden"/>
+
+		<script type="text/javascript"> 
+					$(function(){
+			$('.datepicker').datepicker(); 
+								});
+		</script> 
+	<div class="input-group date" data-provide="datepicker"> 
+	<input type="text" class="form-control"> 
+	<div class="input-group-addon"> 
+	<span class="glyphicon glyphicon-cloud"></span> 
+	</div> 
+</div> 
+
+
+</div>
+       
     </div>
+</div>
                 </div>
                 
                 
@@ -215,13 +176,7 @@
 
     	// Data for the markers consisting of a name, a LatLng and a zIndex for the
     	// order in which these markers should display on top of each other.
-    	var beaches = <%= request.getAttribute("markers") %> /* [
-    	  ['Bondi Beach', -33.890542, 151.274856, 4],
-    	  ['Coogee Beach', -33.923036, 151.259052, 5],
-    	  ['Cronulla Beach', -34.028249, 151.157507, 3],
-    	  ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-    	  ['Maroubra Beach', -33.950198, 151.259302, 1]
-    	] */;
+    	var beaches = <%= request.getAttribute("markers") %> 
 
     	function setMarkers(map) {
     	  // Adds markers to the map.
@@ -273,167 +228,7 @@
     </div> -->
     
 
-  <!--   <div class="row">
-        <div class="col-sm-2">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Date</h3>
-            </div>
-            <div class="panel-body">
-              Panel content
-            </div>
-          </div>
- 
-    </div>
-    
-    
-    <div class="col-sm-10">
-           <style type="text/css">
-     /*  html, body { height: 100%; margin: 0; padding: 0; } */
-      #map { height: 100%; border: 2;}
-    </style>
-	<div id="map" class = "panel panel-default"></div>
-    <script type="text/javascript">
-    
-    function initMap() {
-    	  var map = new google.maps.Map(document.getElementById('map'), {
-    	    zoom: 10,
-    	    center: {lat: -33.9, lng: 151.2}
-    	  });
-
-    	  setMarkers(map);
-    	}
-
-    	// Data for the markers consisting of a name, a LatLng and a zIndex for the
-    	// order in which these markers should display on top of each other.
-    	var beaches = [
-    	  ['Bondi Beach', -33.890542, 151.274856, 4],
-    	  ['Coogee Beach', -33.923036, 151.259052, 5],
-    	  ['Cronulla Beach', -34.028249, 151.157507, 3],
-    	  ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-    	  ['Maroubra Beach', -33.950198, 151.259302, 1]
-    	];
-
-    	function setMarkers(map) {
-    	  // Adds markers to the map.
-
-    	  // Marker sizes are expressed as a Size of X,Y where the origin of the image
-    	  // (0,0) is located in the top left of the image.
-
-    	  // Origins, anchor positions and coordinates of the marker increase in the X
-    	  // direction to the right and in the Y direction down.
-    	  var image = {
-    	    url: 'images/beachflag.png',
-    	    // This marker is 20 pixels wide by 32 pixels high.
-    	    size: new google.maps.Size(20, 32),
-    	    // The origin for this image is (0, 0).
-    	    origin: new google.maps.Point(0, 0),
-    	    // The anchor for this image is the base of the flagpole at (0, 32).
-    	    anchor: new google.maps.Point(0, 32)
-    	  };
-    	  // Shapes define the clickable region of the icon. The type defines an HTML
-    	  // <area> element 'poly' which traces out a polygon as a series of X,Y points.
-    	  // The final coordinate closes the poly by connecting to the first coordinate.
-    	  var shape = {
-    	    coords: [1, 1, 1, 20, 18, 20, 18, 1],
-    	    type: 'poly'
-    	  };
-    	  for (var i = 0; i < beaches.length; i++) {
-    	    var beach = beaches[i];
-    	    var marker = new google.maps.Marker({
-    	      position: {lat: beach[1], lng: beach[2]},
-    	      map: map,
-    	      //icon: image,
-    	      shape: shape,
-    	      title: beach[0],
-    	      zIndex: beach[3]
-    	    });
-    	  }
-    	}
-	</script>
-	 <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2jLuDuu10-lGeQNulmyBLha6ZO70D81g&callback=initMap">
-    </script>
-
-    </div>
-  </div>
- 
-    </div>
-    
-    </div> -->
-    
-   <!-- ------------------------------------------------------------------------------------------------------------------ -->
-    <!-- <div class="span10">
-      <style type="text/css">
-      html, body { height: 100%; margin: 0; padding: 0; }
-      #map { height: 100%; }
-    </style>
-	<div id="map"></div>
-    <script type="text/javascript">
-    
-    function initMap() {
-    	  var map = new google.maps.Map(document.getElementById('map'), {
-    	    zoom: 10,
-    	    center: {lat: -33.9, lng: 151.2}
-    	  });
-
-    	  setMarkers(map);
-    	}
-
-    	// Data for the markers consisting of a name, a LatLng and a zIndex for the
-    	// order in which these markers should display on top of each other.
-    	var beaches = [
-    	  ['Bondi Beach', -33.890542, 151.274856, 4],
-    	  ['Coogee Beach', -33.923036, 151.259052, 5],
-    	  ['Cronulla Beach', -34.028249, 151.157507, 3],
-    	  ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-    	  ['Maroubra Beach', -33.950198, 151.259302, 1]
-    	];
-
-    	function setMarkers(map) {
-    	  // Adds markers to the map.
-
-    	  // Marker sizes are expressed as a Size of X,Y where the origin of the image
-    	  // (0,0) is located in the top left of the image.
-
-    	  // Origins, anchor positions and coordinates of the marker increase in the X
-    	  // direction to the right and in the Y direction down.
-    	  var image = {
-    	    url: 'images/beachflag.png',
-    	    // This marker is 20 pixels wide by 32 pixels high.
-    	    size: new google.maps.Size(20, 32),
-    	    // The origin for this image is (0, 0).
-    	    origin: new google.maps.Point(0, 0),
-    	    // The anchor for this image is the base of the flagpole at (0, 32).
-    	    anchor: new google.maps.Point(0, 32)
-    	  };
-    	  // Shapes define the clickable region of the icon. The type defines an HTML
-    	  // <area> element 'poly' which traces out a polygon as a series of X,Y points.
-    	  // The final coordinate closes the poly by connecting to the first coordinate.
-    	  var shape = {
-    	    coords: [1, 1, 1, 20, 18, 20, 18, 1],
-    	    type: 'poly'
-    	  };
-    	  for (var i = 0; i < beaches.length; i++) {
-    	    var beach = beaches[i];
-    	    var marker = new google.maps.Marker({
-    	      position: {lat: beach[1], lng: beach[2]},
-    	      map: map,
-    	      //icon: image,
-    	      shape: shape,
-    	      title: beach[0],
-    	      zIndex: beach[3]
-    	    });
-    	  }
-    	}
-	</script>
-	 <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2jLuDuu10-lGeQNulmyBLha6ZO70D81g&callback=initMap">
-    </script>
-
-    </div>
-  </div>
-</div> -->
+  
 	
 	
 	
