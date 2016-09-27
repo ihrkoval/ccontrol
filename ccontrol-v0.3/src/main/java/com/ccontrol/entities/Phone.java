@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="Phones")
 public class Phone {
@@ -58,6 +60,8 @@ public class Phone {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	@JsonIgnore
 	public List<Marker> getMarkers() {
 		return markers;
 	}

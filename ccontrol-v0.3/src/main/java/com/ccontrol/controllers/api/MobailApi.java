@@ -18,10 +18,7 @@ import com.ccontrol.DAO.UserDAO;
 import com.ccontrol.entities.Marker;
 import com.ccontrol.entities.Phone;
 import com.ccontrol.entities.User;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 @Controller
 @RequestMapping(value = "/api")

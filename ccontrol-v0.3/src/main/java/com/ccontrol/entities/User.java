@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="Users")
 public class User {
@@ -39,7 +41,7 @@ public User(){}
 
 
 
-
+@JsonIgnore
 public List<Phone> getPhones() {
 	return phones;
 }
