@@ -106,16 +106,27 @@
                                         <!-- Dropdown-->
                                         <li class="panel panel-default" id="dropdown">
                                             <a data-toggle="collapse" href="#dropdown-lvl1">
-                                                <span class="glyphicon glyphicon-pencil"></span> Sub Level <span class="caret"></span>
+                                                <span class="glyphicon glyphicon-pencil"></span> My Phones <span class="caret"></span>
                                             </a>
 
                                             <!-- Dropdown level 1 -->
                                             <div id="dropdown-lvl1" class="panel-collapse collapse">
                                                 <div class="panel-body">
                                                     <ul class="nav navbar-nav">
-                                                        <li><a href="#">Link</a></li>
-                                                        <li><a href="#">Link</a></li>
-                                                        <li><a href="#">Link</a></li>
+                                                    
+                                                       <a href ="#" id="ph">no phone</a>
+                                                       <script>
+var phones, text, fLen, i;
+
+phones =  <%= request.getAttribute("phones") %>
+fLen = phones.length;
+text = "<ul>";
+for (i = 0; i < fLen; i++) {
+    text += "<a href = " + phones[i] + "><li>" + phones[i] + "</li></a>";
+}
+text += "</ul>";
+document.getElementById("ph").innerHTML = text;
+</script>
                                                     </ul>
                                                 </div>
                                             </div>

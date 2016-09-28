@@ -18,6 +18,8 @@ import com.ccontrol.DAO.UserDAO;
 import com.ccontrol.entities.Marker;
 import com.ccontrol.entities.Phone;
 import com.ccontrol.entities.User;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @Controller
@@ -51,13 +53,29 @@ public class MobailApi {
 	
 	@RequestMapping(value = "/user", method = RequestMethod.POST) 
 	@ResponseBody 
-	public User getUser(@RequestBody User o) { 
+	public String getUser(@RequestBody User o) { 
+		
+		ObjectMapper mapper = new ObjectMapper();
+
+		try{
 		User ru = uDao.getUserByName(o.getLogin());
 		
-		if(o.getPassword().equals(ru.getPassword()))
-		return ru;
+		if(o.getPassword().equals(ru.getPassword())){
+			return mapper.writeValueAsString(ru);
+		} else {
+			return "wrong password";
+		}
+		} catch (NoResultException e){
+			e.printStackTrace();
+			return "login not found";
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "request error";
+		}
 		
-		return null;
+		
+		
 	} 
 	
 	

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ccontrol.DAO.MarkerDAO;
+import com.ccontrol.DAO.PhoneDAO;
 import com.ccontrol.DAO.UserDAO;
 import com.ccontrol.entities.Marker;
 import com.ccontrol.entities.Phone;
@@ -37,6 +38,9 @@ public class HomeController {
 	@Autowired
 	private MarkerDAO md;
 	
+	@Autowired
+	private PhoneDAO pd;
+	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
@@ -55,10 +59,11 @@ public class HomeController {
 	public ModelAndView cp() {
 
 		ModelAndView mav = new ModelAndView("cp");
+		try{ 
 		User user  = ud.getUserByName(new GetCurrentUser().getUserName());
 		Phone p = user.getPhones().get(0);
 		
-		
+		///////get markers with date
 		List<Marker> markersList = md.getMarkers(p, new Date(2016, 9, 22));
 		
 		JSONArray markers = new JSONArray();
@@ -73,10 +78,24 @@ public class HomeController {
 			markers.put(b);
 			i++;
 		}
-
-		
 		mav.addObject("markers", markers);
 		
+		
+		/////get user phones 
+		List<Phone> phones = pd.getUserPhones(user);
+		JSONArray phonesJ = new JSONArray();
+		for(Phone ph : phones){
+			
+			phonesJ.put(ph.getName());
+			
+		}
+		System.out.println(phonesJ.toString());
+		mav.addObject("phones", phonesJ);
+		
+		}catch(ClassCastException e){
+			e.printStackTrace();
+			return new ModelAndView("home");
+		}
 		
 		return mav;
 	}
