@@ -63,15 +63,15 @@ public class MobailApi {
 		if(o.getPassword().equals(ru.getPassword())){
 			return mapper.writeValueAsString(ru);
 		} else {
-			return "wrong password";
+			return "{\"error\":\"wrong password\"}";
 		}
 		} catch (NoResultException e){
 			e.printStackTrace();
-			return "login not found";
+			return "{\"error\":\"incorect login\"}";
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "request error";
+			return "{\"error\":\"request error\"}";
 		}
 		
 		
