@@ -61,6 +61,7 @@ public class HomeController {
 		ModelAndView mav = new ModelAndView("cp");
 		try{ 
 		User user  = ud.getUserByName(new GetCurrentUser().getUserName());
+		
 		Phone p = user.getPhones().get(0);
 		
 		///////get markers with date
@@ -95,7 +96,10 @@ public class HomeController {
 		}catch(ClassCastException e){
 			e.printStackTrace();
 			return new ModelAndView("home");
+		} catch (IndexOutOfBoundsException e){
+			System.out.println("User has no phone");
 		}
+		
 		
 		return mav;
 	}
