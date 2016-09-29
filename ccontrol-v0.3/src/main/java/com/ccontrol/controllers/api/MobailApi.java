@@ -51,6 +51,8 @@ public class MobailApi {
 	return "ok"; 
 	} 
 	
+	
+	
 	@RequestMapping(value = "/user", method = RequestMethod.POST) 
 	@ResponseBody 
 	public String getUser(@RequestBody User o) { 
@@ -67,7 +69,7 @@ public class MobailApi {
 		}
 		} catch (NoResultException e){
 			e.printStackTrace();
-			return "{\"error\":\"incorect login\"}";
+			return "{\"error\":\"incorrect login\"}";
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

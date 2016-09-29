@@ -29,9 +29,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User getUserByName(String login) {
-		System.out.println( " try to get user from SQL ...");
 		User u = (User)em.createNativeQuery("Select * from Users where login = '"+login+"'", User.class).getSingleResult();
-		System.out.println(u.getLogin() + " USERNAME in UeserIMPL from DB");
 		return u;
 	}
 	
