@@ -38,17 +38,24 @@ public class MobailApi {
 	@RequestMapping(value = "/user", method = RequestMethod.PUT) 
 	@ResponseBody 
 	public String putMyData(@RequestBody User o) { 
-		User tmp;
+		User tmp = null;
 		try{
 			 tmp = uDao.getUserByName(o.getLogin());
 			 return "User "+ o.getLogin() + " already exist";
 		} catch(NoResultException e) {
-			uDao.newUser(o.getLogin(), o.getPassword(), "ROLE_USER");
+			tmp = uDao.newUser(o.getLogin(), o.getPassword(), "ROLE_USER");
 		}
 		
 		
 	System.out.println("USER PUT "+ o.getLogin()); 
-	return "ok"; 
+	ObjectMapper mapper = new ObjectMapper();
+	try {
+		return  mapper.writeValueAsString(tmp);
+	} catch (JsonProcessingException e) {
+		
+		e.printStackTrace();
+		return "{\"error\":\"json parse fail\"}";
+	} 
 	} 
 	
 	
