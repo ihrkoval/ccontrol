@@ -52,9 +52,9 @@ public class AppConfig extends WebMvcConfigurerAdapter  {
 	    public EntityManager entityManager() {
 		 
 		 Map<String,String> props = new HashMap<String,String>();
-			props.put("javax.persistence.jdbc.url","jdbc:mysql://sql7.freesqldatabase.com/sql7136366");
-			props.put("javax.persistence.jdbc.user","sql7136366");
-			props.put("javax.persistence.jdbc.password","rtElTU4v7P");
+			props.put("javax.persistence.jdbc.url","jdbc:mysql://db4free.net:3306/ccontrol228");
+			props.put("javax.persistence.jdbc.user","ccontrol");
+			props.put("javax.persistence.jdbc.password","ccontrol228");
 			props.put("javax.persistence.jdbc.driver","com.mysql.jdbc.Driver");
 			props.put("hibernate.dialect","org.hibernate.dialect.MySQLDialect");
 			props.put("hibernate.hbm2ddl.auto","update");
