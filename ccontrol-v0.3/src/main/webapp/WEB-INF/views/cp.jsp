@@ -62,7 +62,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="#">
-				name@name.com <%-- <%= request.getAttribute("markers").toString() %> --%>
+				<%--name@name.com --%> <%= request.getAttribute("login").toString() %> 
 			</a>
                     </div>
 
@@ -75,7 +75,7 @@
                             <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                         </form> -->
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="http://google.com" target="_blank">Logout</a></li>
+                            <li><a href="./logout" target="_blank">Logout</a></li>
                            
                         </ul>
                     </div>

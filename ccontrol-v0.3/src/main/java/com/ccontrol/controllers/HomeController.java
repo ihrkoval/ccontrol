@@ -81,6 +81,8 @@ public class HomeController {
 		}
 		mav.addObject("markers", markers);
 		
+		//put username to modelAndView
+		mav.addObject("login", user.getLogin());
 		
 		/////get user phones 
 		List<Phone> phones = pd.getUserPhones(user);
