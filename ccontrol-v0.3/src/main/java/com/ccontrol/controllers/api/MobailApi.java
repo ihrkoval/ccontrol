@@ -91,17 +91,17 @@ public class MobailApi {
 	
 	@RequestMapping(value = "/phone", method = RequestMethod.PUT) //{"id":0,"user":{"login":"pizza","password":"pizza"},"markers":[],"emei":"1321321321","name":"nokla2112"}
 	@ResponseBody 
-	public String putPhone(@RequestBody Phone p)  { 
-				
+	public Phone putPhone(@RequestBody Phone p)  { 
+			Phone newPhone = null;	
 		try{
 			
 			User tmp = uDao.getUserByID(p.getUser().getId());
-			pDao.phoneAdd(new Phone(tmp, p.getEmei(), p.getName()));
+			newPhone = pDao.phoneAdd(new Phone(tmp, p.getEmei(), p.getName()));
 
 		} catch(NoResultException e) {
 			System.out.println(e);
 		}
-	return "ok"; 
+	return newPhone; 
 	} 
 	
 	

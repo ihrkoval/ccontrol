@@ -21,15 +21,17 @@ public class PhoneDAOImpl implements PhoneDAO {
 
 	
 	@Override
-	public void phoneAdd(Phone p) {
+	public Phone phoneAdd(Phone p) {
+		Phone newPhone = new Phone(p.getUser(), p.getEmei(), p.getName());
 		try{
 		em.getTransaction().begin();
-		em.persist(p);
+		em.persist(newPhone);
 		em.getTransaction().commit();
+		return newPhone;
 		} catch (Exception e){
 			em.getTransaction().rollback();
 		}
-		
+	return new Phone();
 	}
 	
 	
