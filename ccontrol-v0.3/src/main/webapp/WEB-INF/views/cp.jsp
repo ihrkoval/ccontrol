@@ -175,11 +175,15 @@ document.getElementById("ph").innerHTML = text;
  
 	<div id="map" class = "panel panel-default"></div>
     <script type="text/javascript">
-    
+    var beaches = <%= request.getAttribute("markers") %> 
+   
+   
+      
     function initMap() {
+    	 var c = beaches[beaches.length-1];
     	  var map = new google.maps.Map(document.getElementById('map'), {
-    	    zoom: 10,
-    	    center: {lat: -33.9, lng: 151.2}
+    	    zoom: 14,
+    	    center: {lat: c[1], lng: c[2]}
     	  });
 
     	  setMarkers(map);
@@ -187,7 +191,7 @@ document.getElementById("ph").innerHTML = text;
 
     	// Data for the markers consisting of a name, a LatLng and a zIndex for the
     	// order in which these markers should display on top of each other.
-    	var beaches = <%= request.getAttribute("markers") %> 
+    	<%-- /var beaches = <%= request.getAttribute("markers") %> --%> 
 
     	function setMarkers(map) {
     	  // Adds markers to the map.

@@ -51,7 +51,7 @@ public class AppConfig extends WebMvcConfigurerAdapter  {
 	 @Bean
 	    public EntityManager entityManager() {
 		 
-		 Map<String,String> props = new HashMap<String,String>();
+		 	Map<String,String> props = new HashMap<String,String>();
 			props.put("javax.persistence.jdbc.url","jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7138736");
 			props.put("javax.persistence.jdbc.user","sql7138736");
 			props.put("javax.persistence.jdbc.password","FRdCQQqqlz");
