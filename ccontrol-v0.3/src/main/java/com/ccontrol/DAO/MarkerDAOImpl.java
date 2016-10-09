@@ -33,7 +33,15 @@ public class MarkerDAOImpl implements MarkerDAO {
 	
 	@Override
 	public List<Marker> getMarkers(Phone p, Date d){
-		return (List<Marker>)em.createNativeQuery("select * from Markers where phone_id = "+p.getId(), Marker.class).getResultList();
+		em.getTransaction().begin();
+		Query markers =  em.createNativeQuery("select * from Markers where phone_id = :id", Marker.class);
+		em.getTransaction().commit();
+		markers.setParameter("id", p.getId());
+		
+		List<Marker> m = markers.getResultList();
+		
+		return m;
+	
 	}
 	
 	

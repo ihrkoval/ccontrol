@@ -224,7 +224,7 @@ document.getElementById("ph").innerHTML = text;
     	      map: map,
     	      //icon: image,
     	      shape: shape,
-    	      title: beach[0],
+    	      title: beach[0]+" " +beaches.length,
     	      zIndex: beach[3]
     	    });
     	  }

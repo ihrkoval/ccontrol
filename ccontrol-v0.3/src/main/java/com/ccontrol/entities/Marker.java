@@ -1,6 +1,7 @@
 package com.ccontrol.entities;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -30,11 +31,13 @@ public class Marker {
 	String lat;
 	String lng;
 	Date timestamp;
+	Timestamp time;
 	
 	public Marker(){}
 	
-	public Marker(Phone phone, String lat, String lng, Date timestamp) {
+	public Marker(Phone phone, String lat, String lng, Date timestamp, Timestamp time) {
 		super();
+		this.time = time;
 		this.phone = phone;
 		this.lat = lat;
 		this.lng = lng;
@@ -68,6 +71,14 @@ public class Marker {
 	}
 	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
+	}
+
+	public Timestamp getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = Timestamp.valueOf(time);
 	}
 	
 	

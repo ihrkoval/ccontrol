@@ -62,14 +62,13 @@ public class HomeController {
 		try{ 
 		User user  = ud.getUserByName(new GetCurrentUser().getUserName());
 		
-		Phone p = user.getPhones().get(0);
 		List<Phone> phons = user.getPhones();
 		
 		///////get markers with date
 		List<Marker> markersList = new ArrayList<Marker>(); //md.getMarkers(p, new Date(2016, 9, 22));
 		for (Phone ph : phons){
-			
-			markersList.addAll(md.getMarkers(ph, new Date(2016, 9, 22)));
+			List<Marker> ms = md.getMarkers(ph, new Date(2016, 9, 22)); 
+			markersList.addAll(ms);
 			System.out.println(markersList.size());
 		}
 		
@@ -95,9 +94,7 @@ public class HomeController {
 		List<Phone> phones = pd.getUserPhones(user);
 		JSONArray phonesJ = new JSONArray();
 		for(Phone ph : phones){
-			
 			phonesJ.put(ph.getName());
-			
 		}
 		System.out.println(phonesJ.toString());
 		mav.addObject("phones", phonesJ);

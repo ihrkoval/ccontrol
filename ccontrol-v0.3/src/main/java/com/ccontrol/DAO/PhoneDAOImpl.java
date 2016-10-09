@@ -37,8 +37,9 @@ public class PhoneDAOImpl implements PhoneDAO {
 	
 	@Override
 	public List<Phone> getUserPhones(User u){
-		
+		em.getTransaction().begin();
 		Query phones =  em.createNativeQuery("select * from Phones where user_id="+u.getId(), Phone.class);
+		em.getTransaction().commit();
 		return (List<Phone>) phones.getResultList();
 		
 	}

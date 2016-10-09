@@ -57,6 +57,8 @@ public class AppConfig extends WebMvcConfigurerAdapter  {
 			props.put("javax.persistence.jdbc.password","FRdCQQqqlz");
 			props.put("javax.persistence.jdbc.driver","com.mysql.jdbc.Driver");
 			props.put("hibernate.dialect","org.hibernate.dialect.MySQLDialect");
+			props.put("hibernate.cache.use_query_cache", "false");
+			props.put("hibernate.cache.use_second_level_cache", "false");
 			props.put("hibernate.hbm2ddl.auto","update");
 			props.put("hibernate.show_sql","true");
 
