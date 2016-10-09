@@ -114,7 +114,13 @@ public class MobailApi {
 			e.printStackTrace();
 			return "{\"error\":\"JsonProcessingException\"}"; 
 		}
-	return "{\"error\":\"phone register error error\"}"; 
+	try {
+		return mapper.writeValueAsString(newPhone);
+	} catch (JsonProcessingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		return "{\"error\":\"JsonProcessingException\"}"; 
+	} 
 	} 
 	
 	
