@@ -222,7 +222,7 @@ document.getElementById("ph").innerHTML = text;
     	  };
     	  for (var i = 0; i < beaches.length; i++) {
 
-    		    var contentString = '<div id="content">'+
+    		    /* var contentString = '<div id="content">'+
     		    '<div id="siteNotice">'+
     		    '</div>'+
     		    '<h3 id="firstHeading" class="firstHeading">Info</h3>'+
@@ -231,8 +231,9 @@ document.getElementById("ph").innerHTML = text;
     		    '<p><b>Field2:</b> info info info</p>'+
     		    '<p><b>Field3:</b> blablablablablablabla</p>'+
     		    '</div>'+
-    		    '</div>';
-    		    
+    		    '</div>'; */
+    		    var contentString = 'Time: '+ beaches[i][0]+';\n'+
+    		    'Markers count: '+beaches.length;
     		    var infowindow = new google.maps.InfoWindow({
     		        content: contentString
     		      });
@@ -243,12 +244,12 @@ document.getElementById("ph").innerHTML = text;
     	      map: map,
     	      //icon: image,
     	      shape: shape,
-    	      title: beach[0]+" " +beaches.length,
+    	      title: contentString,//beach[0]+" " +beaches.length,
     	      zIndex: beach[3]
     	    });
-    	    marker.addListener('click', function() {
+    	   /*  marker.addListener('click', function() {
     	        infowindow.open(map, marker);
-    	      });
+    	      }); */
 
     	  }
     	}
