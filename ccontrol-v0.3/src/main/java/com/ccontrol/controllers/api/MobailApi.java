@@ -92,7 +92,8 @@ public class MobailApi {
 	
 	@RequestMapping(value = "/phone", method = RequestMethod.PUT) //{"id":0,"user":{"login":"pizza","password":"pizza"},"markers":[],"emei":"1321321321","name":"nokla2112"}
 	@ResponseBody 
-	public Phone putPhone(@RequestBody Phone p)  { 
+	public String putPhone(@RequestBody Phone p)  { 
+		ObjectMapper mapper = new ObjectMapper();
 			Phone newPhone = null;	
 		try{
 			
@@ -100,15 +101,20 @@ public class MobailApi {
 			List<Phone> userPhones =  pDao.getUserPhones(tmp);
 			for(Phone phone : userPhones){
 				if(phone.getEmei().equals(p.getEmei())){
-					return phone;
+					return mapper.writeValueAsString(phone);
 				}
 			}
 			newPhone = pDao.phoneAdd(new Phone(tmp, p.getEmei(), p.getName()));
 
 		} catch(NoResultException e) {
 			System.out.println(e);
+			return "{\"error\":\"no such user\"}"; 
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "{\"error\":\"JsonProcessingException\"}"; 
 		}
-	return newPhone; 
+	return "{\"error\":\"phone register error error\"}"; 
 	} 
 	
 	

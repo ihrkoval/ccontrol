@@ -75,7 +75,7 @@
                             <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                         </form> -->
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="./logout" target="_blank">Logout</a></li>
+                            <li><a href="./logout">Logout</a></li>
                            
                         </ul>
                     </div>
@@ -202,7 +202,7 @@ document.getElementById("ph").innerHTML = text;
     	  // Origins, anchor positions and coordinates of the marker increase in the X
     	  // direction to the right and in the Y direction down.
     	  var image = {
-    	    url: 'images/beachflag.png',
+    	    url: 'images/beachfslag.png',
     	    // This marker is 20 pixels wide by 32 pixels high.
     	    size: new google.maps.Size(20, 32),
     	    // The origin for this image is (0, 0).
