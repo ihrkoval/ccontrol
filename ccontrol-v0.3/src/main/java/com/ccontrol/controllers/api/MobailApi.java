@@ -130,7 +130,7 @@ public class MobailApi {
 	public String putMarker(@RequestBody Marker m)  { 
 		mDao.addMarker(m);
 		
-	return "ok"; 
+	return "{\"result\":\"ok\"}"; 
 	} 
 	
 	

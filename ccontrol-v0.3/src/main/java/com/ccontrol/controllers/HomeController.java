@@ -78,7 +78,7 @@ public class HomeController {
 		StringBuilder sb = new StringBuilder();
 		for(Marker m : markersList){
 			JSONArray b = new JSONArray();
-			b.put(m.getTimestamp() + " asd");
+			b.put(m.getTime());
 			b.put(Double.valueOf(m.getLat()));
 			b.put(Double.valueOf(m.getLng()));
 			b.put(i);

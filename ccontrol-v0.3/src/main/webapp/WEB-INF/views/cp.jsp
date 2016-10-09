@@ -175,6 +175,9 @@ document.getElementById("ph").innerHTML = text;
  
 	<div id="map" class = "panel panel-default"></div>
     <script type="text/javascript">
+   
+    
+    
     var beaches = <%= request.getAttribute("markers") %> 
    
    
@@ -218,6 +221,22 @@ document.getElementById("ph").innerHTML = text;
     	    type: 'poly'
     	  };
     	  for (var i = 0; i < beaches.length; i++) {
+
+    		    var contentString = '<div id="content">'+
+    		    '<div id="siteNotice">'+
+    		    '</div>'+
+    		    '<h3 id="firstHeading" class="firstHeading">Info</h3>'+
+    		    '<div id="bodyContent">'+
+    		    '<p><b>Time:</b> '+beaches[i][0]+'</p>'+
+    		    '<p><b>Field2:</b> info info info</p>'+
+    		    '<p><b>Field3:</b> blablablablablablabla</p>'+
+    		    '</div>'+
+    		    '</div>';
+    		    
+    		    var infowindow = new google.maps.InfoWindow({
+    		        content: contentString
+    		      });
+    		    
     	    var beach = beaches[i];
     	    var marker = new google.maps.Marker({
     	      position: {lat: beach[1], lng: beach[2]},
@@ -227,6 +246,10 @@ document.getElementById("ph").innerHTML = text;
     	      title: beach[0]+" " +beaches.length,
     	      zIndex: beach[3]
     	    });
+    	    marker.addListener('click', function() {
+    	        infowindow.open(map, marker);
+    	      });
+
     	  }
     	}
 	</script>
