@@ -1,6 +1,7 @@
 package com.ccontrol.controllers.api;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.persistence.NoResultException;
 
@@ -96,6 +97,12 @@ public class MobailApi {
 		try{
 			
 			User tmp = uDao.getUserByID(p.getUser().getId());
+			List<Phone> userPhones =  pDao.getUserPhones(tmp);
+			for(Phone phone : userPhones){
+				if(phone.getEmei().equals(p.getEmei())){
+					return phone;
+				}
+			}
 			newPhone = pDao.phoneAdd(new Phone(tmp, p.getEmei(), p.getName()));
 
 		} catch(NoResultException e) {

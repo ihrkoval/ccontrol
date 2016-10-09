@@ -63,9 +63,16 @@ public class HomeController {
 		User user  = ud.getUserByName(new GetCurrentUser().getUserName());
 		
 		Phone p = user.getPhones().get(0);
+		List<Phone> phons = user.getPhones();
 		
 		///////get markers with date
-		List<Marker> markersList = md.getMarkers(p, new Date(2016, 9, 22));
+		List<Marker> markersList = new ArrayList<Marker>(); //md.getMarkers(p, new Date(2016, 9, 22));
+		for (Phone ph : phons){
+			
+			markersList.addAll(md.getMarkers(ph, new Date(2016, 9, 22)));
+			System.out.println(markersList.size());
+		}
+		
 		
 		JSONArray markers = new JSONArray();
 		int i = 1;

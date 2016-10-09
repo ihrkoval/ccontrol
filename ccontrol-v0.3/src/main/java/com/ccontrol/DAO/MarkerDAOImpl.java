@@ -35,5 +35,7 @@ public class MarkerDAOImpl implements MarkerDAO {
 	public List<Marker> getMarkers(Phone p, Date d){
 		return (List<Marker>)em.createNativeQuery("select * from Markers where phone_id = "+p.getId(), Marker.class).getResultList();
 	}
+	
+	
 
 }
