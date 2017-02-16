@@ -23,6 +23,9 @@ import com.ccontrol.entities.Marker;
 import com.ccontrol.entities.Phone;
 import com.ccontrol.entities.User;
 import com.ccontrol.security.GetCurrentUser;
+import com.vk.api.sdk.client.TransportClient;
+import com.vk.api.sdk.client.VkApiClient;
+import com.vk.api.sdk.httpclient.HttpTransportClient;
 
 /**
  * Handles requests for the application home page.
@@ -115,6 +118,14 @@ public class HomeController {
 			@RequestParam("pass") String password) {
 		ud.newUser(login, password, "ROLE_USER");
 		System.out.println("User "+login + ":"+password+ " was added" );
+		
+		return "home";
+	}
+	
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String test() {
+		TransportClient transportClient = HttpTransportClient.getInstance(); 
+		VkApiClient vk = new VkApiClient(transportClient); 
 		
 		return "home";
 	}

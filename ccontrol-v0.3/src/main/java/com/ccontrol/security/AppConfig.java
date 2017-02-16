@@ -48,7 +48,7 @@ public class AppConfig extends WebMvcConfigurerAdapter  {
         return mr;
     }
 	
-	 @Bean
+	/* @Bean
 	    public EntityManager entityManager() {
 		 
 		 	Map<String,String> props = new HashMap<String,String>();
@@ -77,7 +77,7 @@ public class AppConfig extends WebMvcConfigurerAdapter  {
 		    	System.out.println("EMF IS NULL!!!");
 		    }
 	        return emf.getObject().createEntityManager();
-	}
+	}*/
 	
 	@Bean
 	public UserDetailsService getUserDetailsService(){

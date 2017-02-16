@@ -24,12 +24,14 @@ public class UserDAOImpl implements UserDAO {
 		} catch (Exception e){
 			em.getTransaction().rollback();
 		}
-		return user;
+		return new User();
 	}
 
 	@Override
 	public User getUserByName(String login) {
-		User u = (User)em.createNativeQuery("Select * from Users where login = '"+login+"'", User.class).getSingleResult();
+		//User u = (User)em.createNativeQuery("Select * from Users where login = '"+login+"'", User.class).getSingleResult();
+		User u = new User();
+		u.setLogin(login);
 		return u;
 	}
 	
@@ -37,7 +39,7 @@ public class UserDAOImpl implements UserDAO {
 	public User getUserByID(int id) {
 		User u = (User)em.createNativeQuery("Select * from Users where id = '"+id+"'", User.class).getSingleResult();
 		
-		return u;
+		return new User();
 	}
 
 }
