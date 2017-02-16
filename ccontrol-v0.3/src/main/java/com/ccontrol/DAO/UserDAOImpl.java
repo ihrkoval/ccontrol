@@ -9,11 +9,29 @@ import com.ccontrol.entities.User;
 
 @Repository
 public class UserDAOImpl implements UserDAO {
-	
-	@Autowired
-    private EntityManager em; 
 
 	@Override
+	public User newUser(String login, String password, String role) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User getUserByName(String login) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User getUserByID(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	/*@Autowired
+    private EntityManager em; 
+*/
+	/*@Override
 	public User newUser(String login, String password, String role) {
 		
 		User user = new User(login, password, role);
@@ -40,6 +58,6 @@ public class UserDAOImpl implements UserDAO {
 		User u = (User)em.createNativeQuery("Select * from Users where id = '"+id+"'", User.class).getSingleResult();
 		
 		return new User();
-	}
+	}*/
 
 }
