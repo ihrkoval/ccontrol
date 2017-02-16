@@ -16,7 +16,19 @@ import com.ccontrol.entities.User;
 @Repository
 public class PhoneDAOImpl implements PhoneDAO {
 
-	@Autowired
+	@Override
+	public Phone phoneAdd(Phone p) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Phone> getUserPhones(User u) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*@Autowired
     private EntityManager em; 
 
 	
@@ -44,7 +56,7 @@ public class PhoneDAOImpl implements PhoneDAO {
 		
 	}
 
-
+*/
 
 
 }

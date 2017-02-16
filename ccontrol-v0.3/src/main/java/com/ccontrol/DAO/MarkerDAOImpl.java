@@ -15,8 +15,20 @@ import com.ccontrol.entities.Phone;
 
 @Repository
 public class MarkerDAOImpl implements MarkerDAO {
+
+	@Override
+	public void addMarker(Marker m) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Marker> getMarkers(Phone p, Date d) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
-	@Autowired
+	/*@Autowired
     private EntityManager em; 
 
 	@Override
@@ -43,7 +55,7 @@ public class MarkerDAOImpl implements MarkerDAO {
 		return m;
 	
 	}
-	
+	*/
 	
 
 }
