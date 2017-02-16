@@ -28,7 +28,7 @@ public class TestController {
 	    return "ok";
     }
 
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	@RequestMapping(value = "/t", method = RequestMethod.GET)
     @ResponseBody
     public String test(HttpServletRequest request) throws IOException{
 					
