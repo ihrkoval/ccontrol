@@ -77,7 +77,7 @@ public class ParseBody implements ServletContextAware{
 			file.createNewFile();
 			fw = new FileWriter(file, true);
 		}
-		fw.write(s+"\n\n");
+		fw.write(s+"\n--------------------------------------------------------------\n");
 		fw.close();
 	}
 	
