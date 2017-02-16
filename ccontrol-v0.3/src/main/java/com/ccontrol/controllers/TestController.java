@@ -43,8 +43,9 @@ public class TestController    {
 	@RequestMapping(value = "/g", method = RequestMethod.GET)
     @ResponseBody
     public File log(HttpServletRequest request) throws IOException{
-					
+				
 		File f = new File("/app/tmp/testfile.txt");
+		
         return f;
     }
 	

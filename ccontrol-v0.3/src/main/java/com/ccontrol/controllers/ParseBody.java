@@ -2,6 +2,7 @@ package com.ccontrol.controllers;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,7 +16,7 @@ import org.springframework.web.context.ServletContextAware;
 
 public class ParseBody implements ServletContextAware{
 	ServletContext servletContext;
-	
+	FileWriter fw;
 	public String getPage(HttpServletRequest request) throws IOException{
 		String body = null;
 	    StringBuilder stringBuilder = new StringBuilder();
@@ -69,7 +70,13 @@ public class ParseBody implements ServletContextAware{
 		File file = new File("tmp/testfile.txt");
 		System.out.println(file.getAbsolutePath());
 		
-		FileWriter fw = new FileWriter(file, true);
+		try{
+		fw = new FileWriter(file, true);
+		} catch (FileNotFoundException e){
+			file.getParentFile().mkdirs();
+			file.createNewFile();
+			fw = new FileWriter(file, true);
+		}
 		fw.write(s+"/n/n");
 		fw.close();
 	}
