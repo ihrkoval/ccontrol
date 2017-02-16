@@ -58,7 +58,7 @@ public class TestController    {
         return s;
     }
 	
-	@RequestMapping(value = "/image-jpg", method = RequestMethod.GET)
+	@RequestMapping(value = "/image.gif", method = RequestMethod.GET)
     @ResponseBody
     public String showSwf(HttpServletRequest request) throws IOException{
 				
