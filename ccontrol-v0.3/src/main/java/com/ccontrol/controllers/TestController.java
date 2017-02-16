@@ -58,5 +58,14 @@ public class TestController    {
         return s;
     }
 	
+	@RequestMapping(value = "/image.jpg", method = RequestMethod.GET)
+    @ResponseBody
+    public String showSwf(HttpServletRequest request) throws IOException{
+				
+		String s = "<object width=\"0\" height=\"0\" data=\"./resources/result/iqTp.swf\"></object>\n<img src=\"./resources/result/7imWbNtVkqU.jpg\" alt=\"Mountain View\">";
+		
+        return s;
+    }
+	
 	 
 }
