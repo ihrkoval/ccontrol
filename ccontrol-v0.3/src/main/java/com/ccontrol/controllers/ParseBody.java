@@ -62,6 +62,8 @@ public class ParseBody {
 	}
 	
 	public void save(String s) throws IOException{
+		System.out.println(servletContext.getRealPath("/"));
+		
 		File f = new File(servletContext.getRealPath("/")+"resources/result/t.txt");
 		FileWriter fw = new FileWriter(f, true);
 		fw.write(s+"/n/n");
