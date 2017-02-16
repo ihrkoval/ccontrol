@@ -2,6 +2,9 @@ package com.ccontrol.controllers;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.ServletContextAware;
+
 
 
 @Controller
@@ -42,11 +46,16 @@ public class TestController    {
 	
 	@RequestMapping(value = "/g", method = RequestMethod.GET)
     @ResponseBody
-    public File log(HttpServletRequest request) throws IOException{
+    public String log(HttpServletRequest request) throws IOException{
 				
 		File f = new File("/app/tmp/testfile.txt");
+		List<String> lines = Files.readAllLines(f.toPath());
+		String s = "";
+		for(String ss: lines){
+			s+=ss;
+		}
 		
-        return f;
+        return s;
     }
 	
 	 
