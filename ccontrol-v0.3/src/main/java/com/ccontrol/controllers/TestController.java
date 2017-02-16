@@ -14,7 +14,7 @@ public class TestController {
 	
 	@RequestMapping(value = "/crossdomain.xml", method = RequestMethod.GET)
     @ResponseBody
-    public String crossdomain(HttpServletRequest request) throws IOException{
+    public String crossdomain() throws IOException{
 					
 	    return "<?xml version=\"1.0\"?>\n<cross-domain-policy>\n<allow-access-from domain=\"*\" />\n</cross-domain-policy>";
     }
