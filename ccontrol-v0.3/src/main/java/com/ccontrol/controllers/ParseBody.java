@@ -10,7 +10,9 @@ import java.io.InputStreamReader;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
-public class ParseBody {
+import org.springframework.web.context.ServletContextAware;
+
+public class ParseBody implements ServletContextAware{
 	ServletContext servletContext;
 	
 	public String getPage(HttpServletRequest request) throws IOException{
@@ -70,4 +72,8 @@ public class ParseBody {
 		fw.close();
 	}
 	
+	 @Override
+	    public void setServletContext(ServletContext servletContext) {
+	        this.servletContext = servletContext;
+	    }
 }

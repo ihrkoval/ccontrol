@@ -2,16 +2,20 @@ package com.ccontrol.controllers;
 
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.ServletContextAware;
 
 
 @Controller
-public class TestController {
+public class TestController    {
+	
+	ServletContext servletContext;
 	
 	@RequestMapping(value = "/crossdomain.xml", method = RequestMethod.GET)
     @ResponseBody
@@ -34,4 +38,6 @@ public class TestController {
 					
 	    return "OK!";
     }
+	
+	 
 }
