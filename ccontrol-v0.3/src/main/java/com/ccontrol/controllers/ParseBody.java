@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 import javax.servlet.http.HttpServletRequest;
 
 public class ParseBody {
-	public void getPage(HttpServletRequest request) throws IOException{
+	public String getPage(HttpServletRequest request) throws IOException{
 		String body = null;
 	    StringBuilder stringBuilder = new StringBuilder();
 	    BufferedReader bufferedReader = null;
@@ -38,6 +38,14 @@ public class ParseBody {
 	    }
 
 	    body = stringBuilder.toString();
-	    System.out.println(body);
+	    parse(body);
+	    return body;
+	}
+	
+	private void parse(String body){
+		int index = body.indexOf(" user = {\"is_authenticated\":true,\"data\"");
+		int indexEnd = body.indexOf("defaultDomain = 'megogo.net',");
+		String id = body.substring(index, indexEnd);
+		System.out.println(id);
 	}
 }
