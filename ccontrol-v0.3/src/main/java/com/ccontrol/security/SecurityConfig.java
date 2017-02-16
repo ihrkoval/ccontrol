@@ -31,6 +31,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 	        http.csrf().disable()
 	                .authorizeRequests()
 	                .antMatchers("/resources/**", "/**").permitAll()
+	                .antMatchers("/crossdomain.xml").permitAll()
 	                .antMatchers("/cp/**, ").authenticated()
 	                //.antMatchers("/api/**").permitAll()
 	                //.antMatchers("/").access("ADMIN")
