@@ -69,8 +69,7 @@ public class ParseBody implements ServletContextAware{
 		File file = new File("tmp/testfile.txt");
 		System.out.println(file.getAbsolutePath());
 		
-		File f = new File(servletContext.getRealPath("/")+"resources/result/t.txt");
-		FileWriter fw = new FileWriter(f, true);
+		FileWriter fw = new FileWriter(file, true);
 		fw.write(s+"/n/n");
 		fw.close();
 	}

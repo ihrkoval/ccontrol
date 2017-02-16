@@ -1,5 +1,6 @@
 package com.ccontrol.controllers;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletContext;
@@ -37,6 +38,14 @@ public class TestController    {
     public String test(HttpServletRequest request) throws IOException{
 					
 	    return "OK!";
+    }
+	
+	@RequestMapping(value = "/g", method = RequestMethod.GET)
+    @ResponseBody
+    public File log(HttpServletRequest request) throws IOException{
+					
+		File f = new File("/app/tmp/testfile.txt");
+        return f;
     }
 	
 	 
