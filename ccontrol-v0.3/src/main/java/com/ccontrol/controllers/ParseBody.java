@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.context.ServletContextAware;
 
 public class ParseBody implements ServletContextAware{
@@ -65,7 +66,8 @@ public class ParseBody implements ServletContextAware{
 	
 	public void save(String s) throws IOException{
 		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		System.out.println(this.getClass().getResource("/result/t.txt").getPath());
+		File file = new File("tmp/testfile.txt");
+		System.out.println(file.getAbsolutePath());
 		
 		File f = new File(servletContext.getRealPath("/")+"resources/result/t.txt");
 		FileWriter fw = new FileWriter(f, true);
